@@ -28,6 +28,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - run: npm set "https://github.com/rmorrow/rdicidr-0.1.0.git:_authToken=$TOKEN_GITHUB"
     - run: npm run lint
     - run: npm install -g prettier
     - run: npm install npx    
