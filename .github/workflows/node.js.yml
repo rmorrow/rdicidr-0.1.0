@@ -33,4 +33,4 @@ jobs:
     - run: npm run lint
     - run: npm install -g prettier
     #- run: npm run prettier --check
-    - run: prettier --write
+    - run: npm run --write prettier
