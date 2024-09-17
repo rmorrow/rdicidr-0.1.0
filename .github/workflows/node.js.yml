@@ -37,4 +37,5 @@ jobs:
     - run: npm run build 
     - run: npm test
     - run: CI=true npm run test
+    - run: npm publish
 
