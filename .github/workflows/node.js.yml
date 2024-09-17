@@ -39,11 +39,11 @@ jobs:
     - run: npm test
     - run: CI=true npm run test
     #- run: npm publish
-    - run: |
+    #- run: 
        #echo @lexacode:https://npm.pkg.github.com/ > .npmrc
-       echo 'https://github.com/rmorrow/rdicidr-0.1.0.git:_authToken=$TOKEN_GITHUB' >> .npmrc
+       #echo 'https://github.com/rmorrow/rdicidr-0.1.0.git:_authToken=$TOKEN_GITHUB' >> .npmrc
     - run: npm publish
-      working-directory: ./
+      #working-directory: ./
       env:
        NPM_TOKEN: ${{ secrets.TOKEN_GITHUB }}    
 
