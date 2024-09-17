@@ -30,9 +30,9 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm install -g prettier
-    #- run: npm install npx    
-    #- run: npm run prettier --check
-    - run: npm run prettier --write .
+    - run: npm install npx    
+    - run: npx prettier . --write
+    #- run: npm run prettier --write .
     - run: npm run build --if-present
     - run: npm test
 
