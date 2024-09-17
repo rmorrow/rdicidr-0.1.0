@@ -14,6 +14,9 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.1"
   },
+    "publishConfig": {
+    "registry": "https://github.com/rmorrow/rdicidr-0.1.0.git"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
