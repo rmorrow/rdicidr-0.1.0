@@ -31,5 +31,5 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - run: npm run lint
-    - run: npm install -g prettier
+    - run: npm install -g prettier --write
     - run: npm run prettier
