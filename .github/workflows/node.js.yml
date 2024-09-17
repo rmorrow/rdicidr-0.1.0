@@ -32,5 +32,6 @@ jobs:
     - run: npm test
     - run: npm run lint
     - run: npm install -g prettier
+    - run: npm install npx    
     #- run: npm run prettier --check
     - run: npx prettier --write
