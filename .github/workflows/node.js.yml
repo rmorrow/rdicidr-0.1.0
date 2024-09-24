@@ -43,8 +43,27 @@ jobs:
     #- run: 
        #echo @lexacode:https://npm.pkg.github.com/ > .npmrc
        #echo 'https://github.com/rmorrow/rdicidr-0.1.0.git:_authToken=$TOKEN_GITHUB' >> .npmrc
-    - run: npm publish
+    #- run: npm publish
       #working-directory: ./
+     # env:
+      # NODE_AUTH_TOKEN: ${{ secrets.TOKEN_GITHUB }}  
+    - name: Remove existing artifacts from AWS S3
       env:
-       NODE_AUTH_TOKEN: ${{ secrets.TOKEN_GITHUB }}    
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+        aws s3 rm \
+        s3://<<YOUR_BUCKET_NAME>> \
+        --recursive \
+        --region ap-southeast-2
+    - name: Deploy artifacts to AWS S3
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+        aws s3 cp \
+        ./build s3://<<YOUR_BUCKET_NAME>> \
+        --recursive \
+        --acl public-read \
+        --region ap-southeast-2      
 
