@@ -17,11 +17,11 @@ jobs:
     strategy:
       matrix:
         #node-version: [18.x, 20.x, 22.x]
-        node-version: [22.x]
+        node-version: [15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: npm i --package-lock-only
+    #- run: npm i --package-lock-only
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
